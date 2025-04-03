@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería de Productos - Mundo Real</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f5e8d3; margin: 0; padding: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    h2 { color: #2d6a4f; border-bottom: 2px solid #ccc; padding-bottom: .5rem; margin-top: 2rem; }
+    .product-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      flex: 1 1 calc(33% - 2rem);
+      padding: 1rem;
+      max-width: 300px;
+    }
+    .product-card img { width: 100%; height: auto; border-radius: 8px; }
+    .product-card h3 { margin: 0.5rem 0; color: #2e2e2e; }
+    .product-card p { font-size: 0.9rem; color: #444; }
+    .price { font-weight: bold; color: #000; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Catálogo Mundo Real</h1>
+
+  <div style="background-color: #fff; padding: 2rem; max-width: 1000px; margin: 2rem auto; border-radius: 10px; text-align: center;">
+    <h2 style="color: #2d6a4f;">Buscar Productos</h2>
+    <input type="text" id="buscador" onkeyup="filtrarProductos()" placeholder="Escribe el nombre o tipo de prenda..."
+           style="width: 80%; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px;">
+  </div>
+
+  <script>
+    function filtrarProductos() {
+      let input = document.getElementById('buscador').value.toLowerCase();
+      let productos = document.querySelectorAll('.product-card');
+      productos.forEach(producto => {
+        let texto = producto.innerText.toLowerCase();
+        producto.style.display = texto.includes(input) ? 'block' : 'none';
+      });
+    }
+  </script>
+
+  <div style="background-color: #fff; padding: 1rem; max-width: 1000px; margin: 1rem auto; border-radius: 10px; text-align: center;">
+    <h2 style="color: #2d6a4f;">Filtrar por Categoría</h2>
+    <select id="filtro-categoria" onchange="filtrarCategoria()" style="padding: 10px; font-size: 1rem; border-radius: 6px; margin-top: 1rem;">
+      <option value="todos">Mostrar todos</option>
+      <option value="sudaderas">Sudaderas</option>
+      <option value="jumpsuits">Jumpsuits</option>
+      <option value="pantalones">Pantalones</option>
+      <option value="vestidos">Vestidos</option>
+      <option value="faldas">Faldas</option>
+      <option value="shorts">Shorts</option>
+      <option value="romper">Romper</option>
+      <option value="leggings">Leggings</option>
+    </select>
+  </div>
+
+  <script>
+    function filtrarCategoria() {
+      const categoria = document.getElementById("filtro-categoria").value.toLowerCase();
+      const secciones = document.querySelectorAll("h2");
+      secciones.forEach(sec => {
+        const contenedor = sec.parentElement;
+        if (categoria === "todos") {
+          contenedor.style.display = "block";
+        } else {
+          contenedor.style.display = sec.innerText.toLowerCase().includes(categoria) ? "block" : "none";
+        }
+      });
+    }
+  </script>
+
+
+
+    <h2>Sudaderas</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5944.jpg" alt="Sudaderas">
+        <h3>Sudadera Básica Unisex</h3>
+        <p class="price">$120</p>
+        <p>Sudadera con gorro y bolsillo tipo canguro. Tela suave, ideal para el frío. Disponible en 12 colores.</p>
+      </div>
+    </div>
+
+    <h2>Jumpsuits</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5945.jpg" alt="Jumpsuit">
+        <h3>Jumpsuit Estampado Geométrico</h3>
+        <p class="price">$130</p>
+        <p>Enterizo fresco con tirantes ajustables y estampado bohemio. Ideal para primavera-verano.</p>
+      </div>
+    </div>
+
+    <h2>Pantalones</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5946.jpg" alt="Pantalones">
+        <h3>Pantalón Casual con Broche</h3>
+        <p class="price">$135</p>
+        <p>Corte recto y pretina con detalle dorado. Tela stretch en 6 colores. Ideal para uso diario o casual.</p>
+      </div>
+    </div>
+
+  </div>
+
+    <h2>Palazzos Estampados</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5943.jpg" alt="Palazzos Estampados">
+        <h3>Palazzo Floral con Bolsillos</h3>
+        <p class="price">$125</p>
+        <p>Palazzos con estampado floral y pretina elástica. Frescos, cómodos y con bolsillos laterales.</p>
+      </div>
+    </div>
+
+    <h2>Vestidos Cortos Cruzados</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5942.jpg" alt="Vestido Cruzado">
+        <h3>Vestido Cruzado Elegante</h3>
+        <p class="price">$140</p>
+        <p>Vestido tipo envolvente con lazo lateral. Ideal para eventos, elegante y cómodo.</p>
+      </div>
+    </div>
+
+    <h2>Jumpsuits Estampados</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5941.jpg" alt="Jumpsuits Estampados">
+        <h3>Jumpsuit Estampado con Tirantes</h3>
+        <p class="price">$130</p>
+        <p>Enterizo con tirantes ajustables y estampados llamativos. Liviano y con caída fluida.</p>
+      </div>
+    </div>
+
+    <h2>Vestidos Largos</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5940.jpg" alt="Vestidos Largos">
+        <h3>Vestido Largo con Abertura Lateral</h3>
+        <p class="price">$145</p>
+        <p>Vestido largo sin mangas con escote y amarre. Ideal para climas cálidos y eventos casuales.</p>
+      </div>
+    </div>
+
+    <h2>Faldas-Palazzo Estampadas</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5939.jpg" alt="Falda Palazzo">
+        <h3>Falda tipo Palazzo Floral</h3>
+        <p class="price">$125</p>
+        <p>Corte amplio estilo falda con abertura. Diseño fresco y ligero, ideal para primavera-verano.</p>
+      </div>
+    </div>
+
+    <h2>Pantalón con Cinturón y Aro</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5938.jpg" alt="Pantalón con Aro">
+        <h3>Pantalón Palazzo con Detalle de Aro</h3>
+        <p class="price">$140</p>
+        <p>Corte ancho con pretina envolvente y aro metálico. Tela suave con caída elegante.</p>
+      </div>
+    </div>
+
+    <h2>Pantalón Estampado Casual</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5937.jpg" alt="Pantalón Estampado">
+        <h3>Pantalón Holgado Estampado</h3>
+        <p class="price">$120</p>
+        <p>Con resorte y bolsillos, diseño relajado para uso diario. Estampados únicos y modernos.</p>
+      </div>
+    </div>
+
+    <h2>Pantalón Formal Liso</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5936.jpg" alt="Pantalón Formal">
+        <h3>Pantalón Recto Formal</h3>
+        <p class="price">$135</p>
+        <p>Corte recto clásico, elegante y versátil para oficina o eventos. Tela stretch.</p>
+      </div>
+    </div>
+  </div>
+
+    <h2>Pantalón con Broche Decorativo</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5935.jpg" alt="Pantalón con Broche Decorativo">
+        <h3>Pantalón Liso con Broche Doble</h3>
+        <p class="price">$135</p>
+        <p>Corte recto formal con detalle metálico dorado en la cintura. Ideal para oficina o vestir casual elegante.</p>
+      </div>
+    </div>
+
+    <h2>Pantalón Skinny con Broche Circular</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5934.jpg" alt="Pantalón Skinny">
+        <h3>Pantalón Skinny con Cintura Ajustada</h3>
+        <p class="price">$135</p>
+        <p>Estilo ajustado con detalle de broche circular dorado. Tela stretch y corte moderno.</p>
+      </div>
+    </div>
+
+    <h2>Pantalón Cropped con Cintilla</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5933.jpg" alt="Pantalón Cropped">
+        <h3>Pantalón Cropped con Lazo</h3>
+        <p class="price">$125</p>
+        <p>Pantalón por debajo de la rodilla con resorte y moño. Ligero y cómodo.</p>
+      </div>
+    </div>
+
+    <h2>Pantalón Acampanado con Bolsillo</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5932.jpg" alt="Pantalón Acampanado">
+        <h3>Pantalón Acampanado Básico</h3>
+        <p class="price">$130</p>
+        <p>Corte recto con ligera campana y bolsillos traseros. Formal, cómodo y versátil.</p>
+      </div>
+    </div>
+
+    <h2>Pantalón Floral Corto</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5931.jpg" alt="Pantalón Floral Corto">
+        <h3>Palazzo Estampado Corto</h3>
+        <p class="price">$125</p>
+        <p>Diseño tropical y corte ancho. Tela fresca, ideal para primavera-verano.</p>
+      </div>
+    </div>
+
+    <h2>Falda Plisada</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5930.jpg" alt="Falda Plisada">
+        <h3>Falda Midi Plisada</h3>
+        <p class="price">$130</p>
+        <p>Corte a media pierna con plisado suave y pretina elástica.</p>
+      </div>
+    </div>
+
+    <h2>Short Estampado con Cintilla</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5929.jpg" alt="Short Estampado">
+        <h3>Short Casual con Moño</h3>
+        <p class="price">$110</p>
+        <p>Tela ligera con resorte y cinta ajustable.</p>
+      </div>
+    </div>
+
+    <h2>Romper Estampado</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5928.jpg" alt="Romper Estampado">
+        <h3>Romper Estampado con Bolsillos</h3>
+        <p class="price">$125</p>
+        <p>Estilo fresco con resorte en cintura y escote cruzado.</p>
+      </div>
+    </div>
+
+    <h2>Jumpsuit Plisado sin Mangas</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5927.jpg" alt="Jumpsuit Plisado">
+        <h3>Jumpsuit Plisado con Cintilla</h3>
+        <p class="price">$140</p>
+        <p>Sin mangas, con escote cruzado y cinturón, ideal para vestir elegante.</p>
+      </div>
+    </div>
+
+    <h2>Leggings Push-Up</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="IMG_5924.jpg" alt="Leggings Push-Up">
+        <h3>Leggings Deportivos con Bolsillo Trasero</h3>
+        <p class="price">$120</p>
+        <p>Estilo push-up con resorte y bolsillos traseros. Perfectos para ejercicio o uso diario.</p>
+      </div>
+    </div>
+  </div>
+
+    
+  
+  <section style="background-color: #fff; padding: 3rem 2rem; max-width: 1000px; margin: 3rem auto; border-radius: 10px;">
+    <h2 style="text-align: center; color: #2d6a4f;">Lo que dicen nuestros clientes</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-top: 2rem;">
+
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 1" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 1</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 2" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 2</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 3" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 3</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 4" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 4</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 5" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 5</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 6" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 6</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 7" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 7</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 8" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 8</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 9" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 9</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 10" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 10</p>
+      </div>
+    
+      <div style="width: 280px; background-color: #f5e8d3; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://via.placeholder.com/100" alt="Cliente 11" style="border-radius: 50%; margin-bottom: 1rem;">
+        <p style="font-style: italic; font-size: 0.95rem; color: #333;">
+          “Excelente servicio, productos hermosos y atención de primera. ¡Recomendado al 100%!”
+        </p>
+        <p style="font-weight: bold; color: #2d6a4f;">Cliente 11</p>
+      </div>
+    
+    </div>
+  </section>
+
+<section style="background-color: #fff; padding: 3rem 2rem; max-width: 1000px; margin: 3rem auto; border-radius: 10px;">
+    <h2 style="text-align: center; color: #2d6a4f;">Sobre Nosotros</h2>
+    <p style="font-size: 1.1rem; line-height: 1.8; color: #333; text-align: justify;">
+      En <strong>Mundo Real</strong> creemos que la moda no solo se trata de ropa, sino de identidad, oportunidad y transformación. 
+      Nacimos con una misión clara: ofrecer prendas modernas, cómodas y accesibles para todas las personas, sin importar su estilo o presupuesto.
+    </p>
+    <p style="font-size: 1.1rem; line-height: 1.8; color: #333; text-align: justify;">
+      Sabemos lo difícil que puede ser emprender, por eso nuestro enfoque también está en apoyar a revendedores y emprendedores que quieren iniciar su propio negocio. 
+      Les ofrecemos precios especiales por mayoreo, asesoría personalizada y productos de alta rotación para que crezcan junto con nosotros.
+    </p>
+    <p style="font-size: 1.1rem; line-height: 1.8; color: #333; text-align: justify;">
+      Nuestro compromiso es vestir a México con estilo real, con precios reales y con un trato cercano. 
+      Porque aquí no solo vendemos ropa, construimos confianza, generamos ingresos y acompañamos a cada cliente en su camino al éxito.
+    </p>
+    <p style="font-size: 1.1rem; font-style: italic; color: #555; text-align: center; margin-top: 2rem;">
+      Mundo Real — Luce bien, vende mejor.
+    </p>
+  </section>
+
+
+  <section style="background-color: #fff; padding: 3rem 2rem; max-width: 1000px; margin: 3rem auto; border-radius: 10px;">
+    <h2 style="text-align: center; color: #2d6a4f;">Mini Blog: Consejos para Emprender y Vestir con Estilo</h2>
+    <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem;">
+
+      <div style="background-color: #f5e8d3; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <h3 style="color: #2d6a4f;">1. Empieza con lo que tienes</h3>
+        <p style="color: #333;">No necesitas miles de pesos para comenzar. Compra pocas piezas, tómales fotos atractivas y promuévelas en redes.</p>
+      </div>
+    
+      <div style="background-color: #f5e8d3; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <h3 style="color: #2d6a4f;">2. Conoce a tu cliente</h3>
+        <p style="color: #333;">Escucha lo que te piden. Pregunta qué colores, tallas o estilos les gustan y adapta tu oferta.</p>
+      </div>
+    
+      <div style="background-color: #f5e8d3; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <h3 style="color: #2d6a4f;">3. Mantén variedad pero no te satures</h3>
+        <p style="color: #333;">Es mejor tener 5 prendas que se vendan rápido a tener 50 que no se muevan.</p>
+      </div>
+    
+      <div style="background-color: #f5e8d3; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <h3 style="color: #2d6a4f;">4. La imagen lo es todo</h3>
+        <p style="color: #333;">Cuida la presentación: fotos limpias, precios claros y buena ortografía en tus publicaciones.</p>
+      </div>
+    
+      <div style="background-color: #f5e8d3; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <h3 style="color: #2d6a4f;">5. Aprovecha el mayoreo</h3>
+        <p style="color: #333;">Al comprar más piezas, reduces tu costo y aumentas tu ganancia. Mundo Real te apoya en eso.</p>
+      </div>
+    
+      <div style="background-color: #f5e8d3; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <h3 style="color: #2d6a4f;">6. Combina estilo y comodidad</h3>
+        <p style="color: #333;">Tus clientes buscan moda, pero también quieren sentirse cómodos. Escoge ropa funcional y en tendencia.</p>
+      </div>
+    
+      <div style="background-color: #f5e8d3; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <h3 style="color: #2d6a4f;">7. Cree en ti</h3>
+        <p style="color: #333;">Todo gran negocio empieza con una persona que se atrevió. Confía en tu visión y sigue aprendiendo.</p>
+      </div>
+    
+    </div>
+  </section>
+
+<section class="contacto" style="background-color: #fff; padding: 3rem 2rem; max-width: 800px; margin: 3rem auto; border-radius: 10px;">
+      <h2 style="text-align: center; color: #2d6a4f;">Contáctanos</h2>
+      <form action="mailto:tuemail@ejemplo.com" method="post" enctype="text/plain" style="display: flex; flex-direction: column;">
+        <label for="nombre" style="margin-top: 1rem;">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required style="padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+
+        <label for="email" style="margin-top: 1rem;">Correo electrónico</label>
+        <input type="email" id="email" name="email" required style="padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+
+        <label for="mensaje" style="margin-top: 1rem;">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required style="padding: 10px; border-radius: 6px; border: 1px solid #ccc;"></textarea>
+
+        <button type="submit" style="margin-top: 2rem; background-color: #2d6a4f; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer;">
+          Enviar mensaje
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/5213328216836" target="_blank" 
+     style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; 
+     color: white; padding: 14px 16px; border-radius: 50%; font-size: 24px; 
+     text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.2); text-decoration: none; z-index: 1000;">
+    🟢
+  </a>
+
+    <section class="ubicacion" style="padding: 3rem 2rem; background-color: #fff; max-width: 1000px; margin: 3rem auto; border-radius: 10px;">
+      <h2 style="text-align: center; color: #2d6a4f;">Nuestra Ubicación</h2>
+      <div style="width: 100%; height: 400px;">
+        <iframe
+          src="https://www.google.com/maps?q=Calle+Churubusco+62,+Guadalajara,+Jalisco&output=embed"
+          width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </div>
+
+    <footer style="background-color: #2d6a4f; color: white; padding: 2rem 1rem; text-align: center; font-size: 1rem;">
+      <h3>Síguenos en redes sociales</h3>
+      <div style="margin: 1rem 0;">
+        <a href="https://www.facebook.com/mundoreal" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">
+          📘 Facebook
+        </a>
+        <a href="https://www.instagram.com/mundoreal" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">
+          📸 Instagram
+        </a>
+        <a href="https://wa.me/5213328216836" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">
+          💬 WhatsApp
+        </a>
+      </div>
+      <p>&copy; 2025 Mundo Real. Todos los derechos reservados.</p>
+    
+    <footer style="background-color: #2d6a4f; color: white; padding: 2rem 1rem; text-align: center; font-size: 1rem;">
+      <h3>Síguenos en redes sociales</h3>
+      <div style="margin: 1rem 0;">
+        <a href="https://www.facebook.com/mundoreal" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">
+          📘 Facebook
+        </a>
+        <a href="https://www.instagram.com/tiendamundoreal" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">
+          📸 Instagram
+        </a>
+        <a href="https://wa.me/5213328216836" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">
+          💬 WhatsApp
+        </a>
+      </div>
+      <p>📧 tiendamundoreal@gmail.com</p>
+      <p>&copy; 2025 Mundo Real. Todos los derechos reservados.</p>
+    
+    <footer style="background-color: #2d6a4f; color: white; padding: 2rem 1rem; text-align: center; font-size: 1rem;">
+      <h3>Síguenos en redes sociales</h3>
+      <div style="margin: 1rem 0;">
+        <a href="https://www.facebook.com/TiendaDeRopaMundoReal" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">
+          📘 Facebook
+        </a>
+        <a href="https://www.instagram.com/tiendamundoreal" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">
+          📸 Instagram
+        </a>
+        <a href="https://wa.me/5213328216836" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">
+          💬 WhatsApp
+        </a>
+      </div>
+      <p>📧 tiendamundoreal@gmail.com</p>
+      <p>&copy; 2025 Mundo Real. Todos los derechos reservados.</p>
+    
+    <footer style="background-color: #2d6a4f; color: white; padding: 3rem 1rem; text-align: center; font-size: 1rem;">
+      <div style="max-width: 1000px; margin: auto;">
+        <h3 style="margin-bottom: 1rem;">Mundo Real</h3>
+        <nav style="margin-bottom: 1rem;">
+          <a href="#catalogo" style="margin: 0 1rem; color: white; text-decoration: none;">Catálogo</a>
+          <a href="#sobre-nosotros" style="margin: 0 1rem; color: white; text-decoration: none;">Sobre Nosotros</a>
+          <a href="#testimonios" style="margin: 0 1rem; color: white; text-decoration: none;">Testimonios</a>
+          <a href="#contacto" style="margin: 0 1rem; color: white; text-decoration: none;">Contacto</a>
+          <a href="#privacidad" style="margin: 0 1rem; color: white; text-decoration: none;">Aviso de Privacidad</a>
+        </nav>
+        <div style="margin: 1rem 0;">
+          <a href="https://www.facebook.com/TiendaDeRopaMundoReal" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">📘 Facebook</a>
+          <a href="https://www.instagram.com/tiendamundoreal" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">📸 Instagram</a>
+          <a href="https://wa.me/5213328216836" target="_blank" style="margin: 0 1rem; color: white; text-decoration: none;">💬 WhatsApp</a>
+        </div>
+        <p>📧 tiendamundoreal@gmail.com</p>
+        <p>&copy; 2025 Mundo Real. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <section id="privacidad" style="background-color: #f5e8d3; padding: 3rem 2rem; max-width: 1000px; margin: 3rem auto; border-radius: 10px;">
+      <h2 style="text-align: center; color: #2d6a4f;">Aviso de Privacidad</h2>
+      <p style="font-size: 0.95rem; line-height: 1.8; color: #333; text-align: justify;">
+        En Mundo Real valoramos y respetamos tu privacidad. Toda la información que recopilamos a través de formularios o contacto directo es utilizada únicamente para fines de atención al cliente, envío de productos y promociones relacionadas con nuestra tienda.
+      </p>
+      <p style="font-size: 0.95rem; line-height: 1.8; color: #333; text-align: justify;">
+        No compartimos tus datos con terceros sin tu consentimiento. Puedes solicitar la modificación o eliminación de tus datos en cualquier momento escribiéndonos a <strong>tiendamundoreal@gmail.com</strong>.
+      </p>
+      <p style="font-size: 0.95rem; color: #777; text-align: center; margin-top: 2rem;">
+        Última actualización: Abril 2025
+      </p>
+    </section>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
